@@ -1,0 +1,280 @@
+/* Paleta de colores súper alegre y colorida */
+:root {
+    --amarillo-patito: #FFDE59;
+    --amarillo-brillante: #FFE885;
+    --azul-polvo: #A2C2E8;
+    --azul-magico: #4A90E2;
+    --coral-alegre: #FF7B7B;
+    --verde-limon: #7ED321;
+    --morado-divertido: #B8E986;
+    --lila-pastel: #D6A2E8;
+    --blanco: #FFFFFF;
+    --texto: #2C3E50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle, #FFFDF2 20%, #FFF9D6 100%);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+/* Fondo de Burbujas Decorativas */
+.burbuja {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: -1;
+    animation: flotar 6s ease-in-out infinite alternate;
+}
+.b1 { width: 100px; height: 100px; background: var(--azul-polvo); top: 15%; left: 5%; }
+.b2 { width: 150px; height: 150px; background: var(--coral-alegre); top: 40%; right: -5%; animation-delay: 1s; }
+.b3 { width: 80px; height: 80px; background: var(--lila-pastel); bottom: 20%; left: 8%; animation-delay: 2s; }
+
+@keyframes flotar {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Encabezado Colorido */
+header {
+    background: linear-gradient(135deg, var(--amarillo-patito) 0%, #FFC107 100%);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 8px dashed var(--azul-polvo);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.logo-icon {
+    font-size: 4rem;
+    background: var(--blanco);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 4px solid var(--azul-polvo);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--azul-magico);
+    text-shadow: 3px 3px 0px var(--blanco), 5px 5px 0px var(--coral-alegre);
+}
+
+header p {
+    font-size: 1.3rem;
+    margin-top: 8px;
+    color: #444;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Contenedor Principal */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Sección Concepto de la Tiendita */
+.concepto {
+    background-color: var(--blanco);
+    border: 4px solid var(--amarillo-patito);
+    border-radius: 30px;
+    padding: 35px;
+    text-align: center;
+    margin-bottom: 5px;
+    box-shadow: 0 10px 0px var(--azul-polvo);
+    position: relative;
+}
+
+.concepto h2 {
+    color: var(--coral-alegre);
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px var(--texto);
+}
+
+.concepto p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 850px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* Sección de Material Didáctico */
+.productos-seccion {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.productos-seccion h2 {
+    text-align: center;
+    color: var(--azul-magico);
+    margin-bottom: 35px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px var(--amarillo-patito);
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas de productos súper coloridas */
+.producto-card {
+    background-color: var(--blanco);
+    border-radius: 25px;
+    overflow: hidden;
+    border: 4px solid #FFF;
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+/* Cada tarjeta tiene un borde de color diferente */
+.card-azul { border-color: var(--azul-polvo); box-shadow: 0 8px 0px var(--azul-polvo); }
+.card-coral { border-color: var(--coral-alegre); box-shadow: 0 8px 0px var(--coral-alegre); }
+.card-lila { border-color: var(--lila-pastel); box-shadow: 0 8px 0px var(--lila-pastel); }
+
+.producto-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.producto-imagen {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    margin: 0 auto 20px auto;
+    border: 3px dashed var(--texto);
+}
+.img-azul { background-color: #E3F2FD; }
+.img-coral { background-color: #FFEBEE; }
+.img-lila { background-color: #F3E5F5; }
+
+.producto-card h3 {
+    color: #222;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.producto-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-producto {
+    display: inline-block;
+    color: var(--blanco);
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.2s;
+    border: 2px solid var(--texto);
+}
+.btn-azul { background-color: var(--azul-magico); }
+.btn-coral { background-color: var(--coral-alegre); }
+.btn-lila { background-color: #9B5DE5; }
+
+.btn-producto:hover {
+    transform: scale(1.1);
+}
+
+/* Banner de YouTube con súper contraste */
+.youtube-banner {
+    background: linear-gradient(135deg, #A2C2E8 0%, #68A0E4 100%);
+    border-radius: 30px;
+    padding: 45px;
+    text-align: center;
+    color: var(--blanco);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+    border: 5px solid var(--blanco);
+    position: relative;
+}
+
+.youtube-banner h2 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0px var(--texto);
+}
+
+.youtube-banner p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #FFFDF2;
+}
+
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #FF0000;
+    color: var(--blanco);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+    border: 3px solid var(--blanco);
+}
+
+.btn-youtube:hover {
+    transform: scale(1.1) rotate(-2deg);
+    background-color: #E60000;
+}
+
+/* Pie de página alegre */
+footer {
+    background-color: var(--azul-magico);
+    color: var(--blanco);
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 1.1rem;
+    border-top: 6px dashed var(--amarillo-patito);
+    font-weight: bold;
+}
+
+footer span {
+    color: var(--amarillo-patito);
+    text-shadow: 1px 1px #000;
+}
