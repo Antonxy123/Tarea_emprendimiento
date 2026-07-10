@@ -1,5 +1,5 @@
     // ⚠️ CAMBIA este número por tu WhatsApp real (código de país + número, sin +, sin espacios)
-    const NUMERO_WHATSAPP = "51927062644";
+    const NUMERO_WHATSAPP = "51926383610";
 
     let carrito = [];
 
