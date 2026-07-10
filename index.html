@@ -15,6 +15,10 @@
 
     <!-- Encabezado -->
     <header>
+        <button class="btn-carrito" onclick="abrirCarrito()">
+            🛒
+            <span class="carrito-contador" id="carrito-contador">0</span>
+        </button>
         <div class="logo-container">
             <span class="logo-icon">🦆</span>
             <div>
@@ -45,21 +49,24 @@
                     <div class="producto-imagen img-azul">🧩</div>
                     <h3>Juegos de Encastre</h3>
                     <p>¡Para mentes brillantes! Desarrollan la coordinación, la motricidad fina y la lógica de forma divertida.</p>
-                    <a href="#" class="btn-producto btn-azul">¡Lo quiero!</a>
+                    <p class="precio">S/ 45.00</p>
+                    <button class="btn-producto btn-azul" onclick="agregarAlCarrito('Juegos de Encastre', 45.00)">¡Lo quiero!</button>
                 </div>
 
                 <div class="producto-card card-coral">
                     <div class="producto-imagen img-coral">🎨</div>
                     <h3>Kits Sensoriales</h3>
                     <p>Texturas, colores y formas fantásticas para explorar el mundo y estimular los sentidos al máximo.</p>
-                    <a href="#" class="btn-producto btn-coral">¡Explorar!</a>
+                    <p class="precio">S/ 35.00</p>
+                    <button class="btn-producto btn-coral" onclick="agregarAlCarrito('Kits Sensoriales', 35.00)">¡Explorar!</button>
                 </div>
 
                 <div class="producto-card card-lila">
                     <div class="producto-imagen img-lila">📚</div>
                     <h3>Cuentos y Más</h3>
                     <p>Historias interactivas y mágicas que despiertan el lenguaje, la empatía y el amor por la lectura.</p>
-                    <a href="#" class="btn-producto btn-lila">¡Ver Cuentos!</a>
+                    <p class="precio">S/ 25.00</p>
+                    <button class="btn-producto btn-lila" onclick="agregarAlCarrito('Cuentos y Más', 25.00)">¡Ver Cuentos!</button>
                 </div>
 
             </div>
@@ -80,5 +87,28 @@
         <p> Hecho con muchísimo amor pedagógico para <span>La Tiendita de Pipe</span> 💛🦆 ¡2026!</p>
     </footer>
 
+    <!-- Modal del Carrito -->
+    <div class="carrito-overlay" id="carrito-overlay" onclick="cerrarCarritoFuera(event)">
+        <div class="carrito-panel">
+            <div class="carrito-header">
+                <h2>🛒 Tu Carrito</h2>
+                <button class="btn-cerrar" onclick="cerrarCarrito()">✖</button>
+            </div>
+            <div class="carrito-items" id="carrito-items">
+                <p class="carrito-vacio" id="carrito-vacio">Tu carrito está vacío 🦆</p>
+            </div>
+            <div class="carrito-footer">
+                <div class="carrito-total">
+                    <span>Total:</span>
+                    <span id="carrito-total">S/ 0.00</span>
+                </div>
+                <button class="btn-finalizar" id="btn-finalizar" onclick="finalizarCompra()" disabled>
+                    ¡Finalizar por WhatsApp! 💬
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

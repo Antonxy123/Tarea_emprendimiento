@@ -25,7 +25,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Fondo de Burbujas Decorativas */
 .burbuja {
     position: absolute;
     border-radius: 50%;
@@ -42,7 +41,6 @@ body {
     100% { transform: translateY(-20px) rotate(10deg); }
 }
 
-/* Encabezado Colorido */
 header {
     background: linear-gradient(135deg, var(--amarillo-patito) 0%, #FFC107 100%);
     padding: 30px 20px;
@@ -92,7 +90,6 @@ header p {
     border-radius: 20px;
 }
 
-/* Contenedor Principal */
 main {
     max-width: 1100px;
     margin: 40px auto;
@@ -100,7 +97,6 @@ main {
     position: relative;
 }
 
-/* Sección Concepto de la Tiendita */
 .concepto {
     background-color: var(--blanco);
     border: 4px solid var(--amarillo-patito);
@@ -128,7 +124,6 @@ main {
     font-weight: 500;
 }
 
-/* Sección de Material Didáctico */
 .productos-seccion {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -148,7 +143,6 @@ main {
     gap: 30px;
 }
 
-/* Tarjetas de productos súper coloridas */
 .producto-card {
     background-color: var(--blanco);
     border-radius: 25px;
@@ -160,7 +154,6 @@ main {
     box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
-/* Cada tarjeta tiene un borde de color diferente */
 .card-azul { border-color: var(--azul-polvo); box-shadow: 0 8px 0px var(--azul-polvo); }
 .card-coral { border-color: var(--coral-alegre); box-shadow: 0 8px 0px var(--coral-alegre); }
 .card-lila { border-color: var(--lila-pastel); box-shadow: 0 8px 0px var(--lila-pastel); }
@@ -207,6 +200,7 @@ main {
     font-size: 1rem;
     transition: transform 0.2s;
     border: 2px solid var(--texto);
+    cursor: pointer;
 }
 .btn-azul { background-color: var(--azul-magico); }
 .btn-coral { background-color: var(--coral-alegre); }
@@ -216,7 +210,6 @@ main {
     transform: scale(1.1);
 }
 
-/* Banner de YouTube con súper contraste */
 .youtube-banner {
     background: linear-gradient(135deg, #A2C2E8 0%, #68A0E4 100%);
     border-radius: 30px;
@@ -262,7 +255,6 @@ main {
     background-color: #E60000;
 }
 
-/* Pie de página alegre */
 footer {
     background-color: var(--azul-magico);
     color: var(--blanco);
@@ -277,4 +269,196 @@ footer {
 footer span {
     color: var(--amarillo-patito);
     text-shadow: 1px 1px #000;
+}
+
+/* ===== CARRITO DE COMPRAS ===== */
+
+.btn-carrito {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--blanco);
+    border: 3px solid var(--azul-magico);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.btn-carrito:hover {
+    transform: scale(1.1);
+}
+
+.carrito-contador {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--coral-alegre);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--azul-magico);
+    margin-bottom: 15px !important;
+}
+
+.carrito-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: flex-end;
+}
+
+.carrito-overlay.activo {
+    display: flex;
+}
+
+.carrito-panel {
+    background: var(--blanco);
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+    animation: deslizar 0.3s ease;
+}
+
+@keyframes deslizar {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.carrito-header {
+    background: var(--azul-magico);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-header h2 {
+    font-size: 1.5rem;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.carrito-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: #888;
+    font-size: 1.1rem;
+    margin-top: 40px;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 2px dashed #eee;
+}
+
+.carrito-item-info h4 {
+    font-size: 1rem;
+    color: var(--texto);
+    margin-bottom: 5px;
+}
+
+.carrito-item-precio {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.carrito-item-controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cantidad {
+    background: var(--azul-polvo);
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: var(--coral-alegre);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.carrito-footer {
+    padding: 20px;
+    border-top: 2px solid #eee;
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--texto);
+}
+
+.btn-finalizar {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+.btn-finalizar:hover {
+    background: #1FAF54;
+}
+
+.btn-finalizar:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
